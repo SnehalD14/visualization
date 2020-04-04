@@ -2,21 +2,15 @@
 Visualization setup file.
 """
 from setuptools import setup
-import sys
-
-def get_imageio_dep():
-    if sys.version[0] == "2":
-        return 'imageio<=2.6.1'
-    return 'imageio'
 
 requirements = [
-    get_imageio_dep(),
+    'imageio',
     'numpy',
     'matplotlib<=2.2.0',
     'trimesh[easy]',
     'autolab_core',
     'autolab_perception',
-    'pyrender'
+    'meshrender'
 ]
 
 exec(open('visualization/version.py').read())
@@ -28,7 +22,7 @@ setup(
     description = 'Visualization toolkit for the Berkeley AutoLab.',
     long_description = 'Visualization toolkit for the Berkeley AutoLab.',
     author = 'Matthew Matl',
-    author_email = 'mmatl@eecs.berkeley.edu',
+    author_email = 'mmatl@eevs.berkeley.edu',
     license = 'Apache Software License',
     url = 'https://github.com/BerkeleyAutomation/visualization',
     keywords = 'robotics visualization rendering 3D',
@@ -48,6 +42,9 @@ setup(
             'sphinx',
             'sphinxcontrib-napoleon',
             'sphinx_rtd_theme'
-        ]
+        ],
+        'full' : [
+            'meshpy',
+        ],
     }
 )
